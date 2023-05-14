@@ -1,5 +1,5 @@
 # bookFAClass
-A python script that automates the class booking process. Requires several inputs from user. Requires the Firefox browser to use.
+A python script that automates the class booking process. Requires several inputs from user and works only if they have Firefox installed on their machine.
 
 # Use
 - Users should enter `python3 bookFAClass.py *arg1* *arg2* *arg3 (optional)*` in the command line launched from the same folder where this script is located.
