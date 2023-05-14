@@ -28,17 +28,19 @@ def bookFAClass():
                 sleep(0.75)
             availableClasses = browser.find_elements(
                 By.CLASS_NAME, "list-text-left")
+            classStatus = browser.find_elements(
+                By.CLASS_NAME, "list-text-right")
             if len(availableClasses) > 0:
                 print("These are the available classes for the day: \n")
                 for c, val in enumerate(availableClasses):
-                    print(f"Option [{c}]: {val.text}")
+                    print(f"[{c}]: {val.text}\n")
                 targetClass = pyip.inputStr(
-                    "Please select a class to book (enter 'n' or 'N' to cancel): \n")
+                    "Please type a class number to book (e.g. '1', '7', '3') and press enter.\nTo cancel, enter 'n' or 'N'.\n")
                 if (targetClass == 'n' or targetClass == "N"):
                     return
                 while (targetClass == ""):
                     targetClass = pyip.inputStr(
-                        "Please type a class number to book (e.g. '1', '7', '3') and press enter \n To cancel, enter 'n' or 'N'")
+                        "Please type a class number to book (e.g. '1', '7', '3') and press enter.\nTo cancel, enter 'n' or 'N'.\n")
                     if (targetClass == 'n' or targetClass == "N"):
                         return
                 for index, val in enumerate(availableClasses):
@@ -51,7 +53,7 @@ def bookFAClass():
                             By.CSS_SELECTOR, "button.full-width.modal-button")
                         print(f"!!!!!!! {bookButton}")
                         decision = pyip.inputStr(
-                            "Confirm booking? [y]/[n]")
+                            "Confirm booking? [y]/[n] ")
                         if (str(decision).strip().lower() == 'y'):
                             bookButton.click()
                         else:
